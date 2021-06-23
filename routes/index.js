@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { getDogs, deleteDog } = require('../model/dogs');
+const { getDogs, deleteDog, updateDog } = require('../model/dogs');
 
 const router = express.Router();
 
@@ -20,6 +20,14 @@ router.delete(
   '/dogs/:name',
   asyncHandler(async (req, res) => {
     const result = await deleteDog(req.params.name);
+    res.status(200).send(result);
+  }),
+);
+
+router.patch(
+  '/dogs/:name',
+  asyncHandler(async (req, res) => {
+    const result = await updateDog(req.params.name, req.body);
     res.status(200).send(result);
   }),
 );

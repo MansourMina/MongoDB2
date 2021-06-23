@@ -19,5 +19,9 @@ const deleteDog = async (name) => {
   await Dog.deleteOne({ name: { $eq: name } });
   return 'deleted';
 };
+const updateDog = async (name, body) => {
+  await Dog.updateOne({ name: { $eq: name } }, { $set: { sex: body.sex } });
+  return 'updated';
+};
 
-module.exports = { getDogs, deleteDog };
+module.exports = { getDogs, deleteDog, updateDog };
