@@ -1,3 +1,11 @@
 GET http://localhost:3000/welcome
 ###
 GET http://localhost:3000/dogs
+###
+GET http://localhost:3000/dogs?gender=male
+###
+GET http://localhost:3000/dogs?datebornsince='2012-12-12'
+###
+GET http://localhost:3000/dogs?favFood=corn
+###
+DELETE http://localhost:3000/dogs/Britney Ears
